@@ -1,30 +1,29 @@
-<amplify-authenticator>
-  <div>
+<div>
+  <nz-layout>
+    <nz-header
+      ><a href="https://afslogistics.co.uk/">
+        <img
+          class="logo"
+          src="../../assets/logo_light.svg"
+          alt="AFS Logistic Logo"
+        />
+      </a>
+      AFS JWD Assessment
+    </nz-header>
     <nz-layout>
-      <nz-header
-        ><a href="https://afslogistics.co.uk/">
-          <img
-            class="logo"
-            src="../../assets/logo_light.svg"
-            alt="AFS Logistic Logo"
-          />
-        </a>
-        AFS JWD Assessment
-      </nz-header>
-      <nz-layout>
-        <nz-sider>
-          <nav class="nav">
-            <a routerLink="/home" routerLinkActive="active">Home</a>
-            <a routerLink="/home/users" routerLinkActive="active">Users</a>
-            <a routerLink="/home/clients" routerLinkActive="active">Clients</a>
-          </nav>
-        </nz-sider>
-        <nz-content>
-          <router-outlet></router-outlet>
-        </nz-content>
-      </nz-layout>
-      <nz-footer>Debbie Urquhart</nz-footer>
+      <nz-sider>
+        <nav class="nav">
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+          <a routerLink="/home/users" routerLinkActive="active">Users</a>
+          <a routerLink="/home/clients" routerLinkActive="active">Clients</a>
+        </nav>
+      </nz-sider>
+      <nz-content
+        ><amplify-authenticator></amplify-authenticator>
+        <router-outlet></router-outlet>
+      </nz-content>
     </nz-layout>
-    <amplify-sign-out></amplify-sign-out>
-  </div>
-</amplify-authenticator>
+    <nz-footer>Debbie Urquhart</nz-footer>
+  </nz-layout>
+  <amplify-sign-out></amplify-sign-out>
+</div>
