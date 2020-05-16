@@ -7,9 +7,11 @@ import json from "../../../assets/mock_data.json";
   styleUrls: ["./users.component.scss"]
 })
 export class UsersComponent implements OnInit {
+  listData: {} = json;
+
   constructor() {
-    console.log("Reading local json files");
     console.log(json);
+    console.log(this.listData);
   }
 
   ngOnInit() {}
