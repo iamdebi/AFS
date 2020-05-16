@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Auth } from "aws-amplify";
 import {
   CanActivate,
   CanLoad,
@@ -17,6 +18,16 @@ export class AuthGuard implements CanActivate, CanLoad {
   auth = true;
   constructor() {}
 
+  async isAuthenticated() {
+    return await Auth.currentAuthenticatedUser()
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return false;
+      });
+  }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,13 +36,15 @@ export class AuthGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.auth;
+    return this.isAuthenticated();
   }
 
   canLoad(
     route: Route,
     segments: UrlSegment[]
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.auth;
+    return this.isAuthenticated();
   }
+
+  ngOnInit() {}
 }

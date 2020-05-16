@@ -20,10 +20,12 @@
       </nz-sider>
       <nz-content
         ><amplify-authenticator></amplify-authenticator>
+        <a routerLink="/home">
+          <amplify-sign-out></amplify-sign-out>
+        </a>
         <router-outlet></router-outlet>
       </nz-content>
     </nz-layout>
     <nz-footer>Debbie Urquhart</nz-footer>
   </nz-layout>
-  <amplify-sign-out></amplify-sign-out>
 </div>
