@@ -9,9 +9,17 @@ body {
 }
 
 a.active {
-  color: orange;
+  color: #f0f2f5;
 }
 
 nz-layout {
   height: 100%;
+}
+
+nz-header {
+  color: #f0f2f5;
+}
+
+.logo {
+  height: 40px;
 }
