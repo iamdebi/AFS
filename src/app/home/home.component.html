@@ -1,2 +1,15 @@
-<p>home works!</p>
-<router-outlet></router-outlet>
+<nz-layout>
+  <nz-header>header</nz-header>
+  <nz-layout>
+    <nz-sider>
+      <nav>
+        <a routerLink="/home" routerLinkActive="active">Home</a>
+        <a routerLink="/home/users" routerLinkActive="active">Users</a>
+        <a routerLink="/home/clients" routerLinkActive="active">Clients</a>
+      </nav>
+    </nz-sider>
+    <nz-content><router-outlet></router-outlet></nz-content>
+    <nz-sider>right sidebar</nz-sider>
+  </nz-layout>
+  <nz-footer>Debbie Urquhart</nz-footer>
+</nz-layout>

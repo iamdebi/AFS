@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "first_name": "Merola",
+    "last_name": "Mc Carrick",
+    "favourite_city": "Velyka Lepetykha",
+    "has_visited": false,
+    "gender": "Female"
+  },
+  {
+    "id": 2,
+    "first_name": "Staffard",
+    "last_name": "Galley",
+    "favourite_city": null,
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 3,
+    "first_name": "Dorette",
+    "last_name": "Sumshon",
+    "favourite_city": "Ciénaga",
+    "has_visited": true,
+    "gender": "Female"
+  },
+  {
+    "id": 4,
+    "first_name": "Arlen",
+    "last_name": "Prangley",
+    "favourite_city": "Al Manqaf",
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 5,
+    "first_name": "Kip",
+    "last_name": "Hartfleet",
+    "favourite_city": "Dajalorong",
+    "has_visited": true,
+    "gender": "Other"
+  },
+  {
+    "id": 6,
+    "first_name": "Frasco",
+    "last_name": "Mahmood",
+    "favourite_city": "Jiagao",
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 7,
+    "first_name": "Julina",
+    "last_name": "Hammett",
+    "favourite_city": "Skärholmen",
+    "has_visited": true,
+    "gender": "Female"
+  },
+  {
+    "id": 8,
+    "first_name": "Ezra",
+    "last_name": "Stapels",
+    "favourite_city": "Bulacan",
+    "has_visited": true,
+    "gender": "Male"
+  },
+  {
+    "id": 9,
+    "first_name": "Ferdinand",
+    "last_name": "Ortmann",
+    "favourite_city": "Rovira",
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 10,
+    "first_name": "Tiffany",
+    "last_name": "Gilli",
+    "favourite_city": "Severnyy",
+    "has_visited": true,
+    "gender": "Female"
+  },
+  {
+    "id": 11,
+    "first_name": "Keeley",
+    "last_name": "Rockwill",
+    "favourite_city": "‘Afrīn",
+    "has_visited": true,
+    "gender": "Female"
+  },
+  {
+    "id": 12,
+    "first_name": "Eveleen",
+    "last_name": "Thow",
+    "favourite_city": "Hengli",
+    "has_visited": true,
+    "gender": "Female"
+  },
+  {
+    "id": 13,
+    "first_name": "Errol",
+    "last_name": "Syson",
+    "favourite_city": "Pau",
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 14,
+    "first_name": "Cacilia",
+    "last_name": "Paty",
+    "favourite_city": "Ryōtsu-minato",
+    "has_visited": true,
+    "gender": "Female"
+  },
+  {
+    "id": 15,
+    "first_name": "Willetta",
+    "last_name": "O' Bee",
+    "favourite_city": "Bajera",
+    "has_visited": false,
+    "gender": "Female"
+  },
+  {
+    "id": 16,
+    "first_name": "Laney",
+    "last_name": "Goodright",
+    "favourite_city": "Paitan Este",
+    "has_visited": false,
+    "gender": "Female"
+  },
+  {
+    "id": 17,
+    "first_name": "Boigie",
+    "last_name": "Skaif",
+    "favourite_city": "La Paz",
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 18,
+    "first_name": "Gage",
+    "last_name": "Bearn",
+    "favourite_city": "Bayamo",
+    "has_visited": true,
+    "gender": "Male"
+  },
+  {
+    "id": 19,
+    "first_name": "Osborn",
+    "last_name": "Glasbey",
+    "favourite_city": "Zernograd",
+    "has_visited": false,
+    "gender": "Male"
+  },
+  {
+    "id": 20,
+    "first_name": "Hogan",
+    "last_name": "Figgins",
+    "favourite_city": "Kadugadung",
+    "has_visited": false,
+    "gender": "Male"
+  }
+]
