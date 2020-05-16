@@ -1,15 +1,18 @@
 @import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
+body {
+  background: red;
+}
 
 // An override for the html selector for theme prefixes
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: @blue-6;
-@info-color: @blue-6;
+@primary-color: #f5a624;
+@info-color: @orange-6;
 @success-color: @green-6;
-@processing-color: @blue-6;
+@processing-color: @orange-6;
 @error-color: @red-6;
 @highlight-color: @red-6;
 @warning-color: @gold-6;
@@ -19,18 +22,24 @@
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
-@primary-2: color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
-@primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
-@primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
+@primary-1: color(
+  ~`colorPalette("@{primary-color}", 1) `
+); // replace tint(@primary-color, 90%)
+@primary-2: color(
+  ~`colorPalette("@{primary-color}", 2) `
+); // replace tint(@primary-color, 80%)
+@primary-3: color(~`colorPalette("@{primary-color}", 3) `); // unused
+@primary-4: color(~`colorPalette("@{primary-color}", 4) `); // unused
 @primary-5: color(
-  ~`colorPalette('@{primary-color}', 5) `
+  ~`colorPalette("@{primary-color}", 5) `
 ); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
 @primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
-@primary-8: color(~`colorPalette('@{primary-color}', 8) `); // unused
-@primary-9: color(~`colorPalette('@{primary-color}', 9) `); // unused
-@primary-10: color(~`colorPalette('@{primary-color}', 10) `); // unused
+@primary-7: color(
+  ~`colorPalette("@{primary-color}", 7) `
+); // replace shade(@primary-color, 5%)
+@primary-8: color(~`colorPalette("@{primary-color}", 8) `); // unused
+@primary-9: color(~`colorPalette("@{primary-color}", 9) `); // unused
+@primary-10: color(~`colorPalette("@{primary-color}", 10) `); // unused
 
 // Base Scaffolding Variables
 // ---
@@ -39,10 +48,11 @@
 @body-background: #fff;
 // Base background color for most components
 @component-background: #fff;
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-'Segoe UI Emoji', 'Segoe UI Symbol';
-@code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+@font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+  "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@code-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+  monospace;
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
 @text-color-inverse: @white;
@@ -54,7 +64,7 @@
 @text-color-secondary-dark: fade(@white, 65%);
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
-@font-feature-settings-base: 'tnum';
+@font-feature-settings-base: "tnum";
 @font-size-base: 14px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
@@ -86,8 +96,8 @@
 
 // LINK
 @link-color: @primary-color;
-@link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
-@link-active-color: color(~`colorPalette('@{link-color}', 7) `);
+@link-hover-color: color(~`colorPalette("@{link-color}", 5) `);
+@link-active-color: color(~`colorPalette("@{link-color}", 7) `);
 @link-decoration: none;
 @link-hover-decoration: none;
 
@@ -119,8 +129,12 @@
 @outline-width: 2px;
 @outline-color: @primary-color;
 
-@background-color-light: hsv(0, 0, 98%); // background of header and selected item
-@background-color-base: hsv(0, 0, 96%); // Default grey background color
+@background-color-light: hsv(
+  0,
+  0,
+  98%
+); // background of header and selected item
+@background-color-base: #241122; // Default grey background color
 
 // Disabled states
 @disabled-color: fade(#000, 25%);
@@ -155,8 +169,8 @@
 @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
-@btn-danger-bg: color(~`colorPalette('@{error-color}', 5) `);
-@btn-danger-border: color(~`colorPalette('@{error-color}', 5) `);
+@btn-danger-bg: color(~`colorPalette("@{error-color}", 5) `);
+@btn-danger-border: color(~`colorPalette("@{error-color}", 5) `);
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
@@ -246,7 +260,7 @@
 
 // Layout
 @layout-body-background: #f0f2f5;
-@layout-header-background: #001529;
+@layout-header-background: #241122;
 @layout-footer-background: @layout-body-background;
 @layout-header-height: 64px;
 @layout-header-padding: 0 50px;
@@ -429,8 +443,8 @@
 
 // Table
 // --
-@table-header-bg: @background-color-light;
-@table-header-color: @heading-color;
+@table-header-bg: #241122;
+@table-header-color: #14e6b8;
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
 @table-row-hover-bg: @primary-1;
@@ -634,17 +648,17 @@
 
 // Alert
 // ---
-@alert-success-border-color: ~`colorPalette('@{success-color}', 3) `;
-@alert-success-bg-color: ~`colorPalette('@{success-color}', 1) `;
+@alert-success-border-color: ~`colorPalette("@{success-color}", 3) `;
+@alert-success-bg-color: ~`colorPalette("@{success-color}", 1) `;
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: ~`colorPalette('@{info-color}', 3) `;
-@alert-info-bg-color: ~`colorPalette('@{info-color}', 1) `;
+@alert-info-border-color: ~`colorPalette("@{info-color}", 3) `;
+@alert-info-bg-color: ~`colorPalette("@{info-color}", 1) `;
 @alert-info-icon-color: @info-color;
-@alert-warning-border-color: ~`colorPalette('@{warning-color}', 3) `;
-@alert-warning-bg-color: ~`colorPalette('@{warning-color}', 1) `;
+@alert-warning-border-color: ~`colorPalette("@{warning-color}", 3) `;
+@alert-warning-bg-color: ~`colorPalette("@{warning-color}", 1) `;
 @alert-warning-icon-color: @warning-color;
-@alert-error-border-color: ~`colorPalette('@{error-color}', 3) `;
-@alert-error-bg-color: ~`colorPalette('@{error-color}', 1) `;
+@alert-error-border-color: ~`colorPalette("@{error-color}", 3) `;
+@alert-error-bg-color: ~`colorPalette("@{error-color}", 1) `;
 @alert-error-icon-color: @error-color;
 
 // List
@@ -680,4 +694,3 @@
 // Typography
 // ---
 @typography-title-font-weight: 600;
-
