@@ -1,1 +1,13 @@
-<p>clients works!</p>
+<form>
+  <input #name placeholder="name" />
+  <input #description placeholder="description" />
+
+  <button (click)="createTodo(name.value, description.value)">
+    Add Todo
+  </button>
+</form>
+<ul>
+  <li class="items" *ngFor="let item of allTodos">
+    <p>name: {{ item.name }} - {{ item.description }}</p>
+  </li>
+</ul>
