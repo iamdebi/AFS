@@ -63,18 +63,18 @@ export class ClientsComponent implements OnInit {
   async ngOnInit() {
     this.allUsers = await API.graphql(graphqlOperation(queries.listUsers));
 
-    let subscription;
+    // let subscription;
 
-    (async () => {
-      subscription = client.subscribe({ query: gql(onCreateUser) }).subscribe({
-        next: data => {
-          console.log(data.data.onCreateTodo);
-        },
-        error: error => {
-          console.warn(error);
-        }
-      });
-    })();
+    // (async () => {
+    //   subscription = client.subscribe({ query: gql(onCreateUser) }).subscribe({
+    //     next: data => {
+    //       console.log(data.data.onCreateTodo);
+    //     },
+    //     error: error => {
+    //       console.warn(error);
+    //     }
+    //   });
+    // })();
 
     // const subscription = API.graphql(
     //   graphqlOperation(subscriptions.onCreateUser)
