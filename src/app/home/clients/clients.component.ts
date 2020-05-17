@@ -63,12 +63,14 @@ export class ClientsComponent implements OnInit {
   async ngOnInit() {
     this.allUsers = await API.graphql(graphqlOperation(queries.listUsers));
 
+    // Attempeted GraphQL subscription to dynamically load data unsucessfully
+
     // let subscription;
 
     // (async () => {
     //   subscription = client.subscribe({ query: gql(onCreateUser) }).subscribe({
     //     next: data => {
-    //       console.log(data.data.onCreateTodo);
+    //       console.log(data.data.onCreateUser);
     //     },
     //     error: error => {
     //       console.warn(error);
