@@ -1,7 +1,3 @@
-<button nz-button [nzType]="'primary'" (click)="showModal()">
-  <span>Add User</span>
-</button>
-
 <nz-modal
   [(nzVisible)]="isVisible"
   nzTitle="The first Modal"
@@ -43,6 +39,11 @@
       <th>Gender</th>
       <th>Favourite City</th>
       <th>Visited</th>
+      <th>
+        <button nz-button [nzType]="'primary'" (click)="showModal()">
+          <span>Add User</span>
+        </button>
+      </th>
     </tr>
   </thead>
   <tbody>

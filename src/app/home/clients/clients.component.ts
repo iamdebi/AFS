@@ -6,6 +6,7 @@ import * as mutations from "../../../graphql/mutations";
 import { API, graphqlOperation } from "aws-amplify";
 // import { createTodo, updateTodo, deleteTodo } from "../../../graphql/mutations";
 import { createUser, updateUser, deleteUser } from "../../../graphql/mutations";
+import { onCreateUser } from "../../../graphql/subscriptions";
 
 @Component({
   selector: "app-clients",
@@ -62,13 +63,32 @@ export class ClientsComponent implements OnInit {
   async ngOnInit() {
     this.allUsers = await API.graphql(graphqlOperation(queries.listUsers));
 
-    const subscription = API.graphql(
-      graphqlOperation(subscriptions.onCreateUser)
-    ).subscribe({
-      next: todoData => console.log(todoData)
-    });
+    let subscription;
 
-    subscription.unsubscribe();
+    (async () => {
+      subscription = client.subscribe({ query: gql(onCreateUser) }).subscribe({
+        next: data => {
+          console.log(data.data.onCreateTodo);
+        },
+        error: error => {
+          console.warn(error);
+        }
+      });
+    })();
+
+    // const subscription = API.graphql(
+    //   graphqlOperation(subscriptions.onCreateUser)
+    // ).subscribe({
+    //   next: todoData => console.log(todoData)
+    // });
+
+    // API.graphql(
+    //   graphqlOperation(subscriptions.onCreateUser)
+    // ).OnCreateTodoListener.subscribe(evt => {
+    //   const data = (evt as any).value.data.onCreateTodo;
+    //   this.allUsers = [...this.allUsers, data];
+    // });
+    // subscription.unsubscribe();
   }
 
   // // old code before working on extra

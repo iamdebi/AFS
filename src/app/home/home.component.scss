@@ -1,6 +1,7 @@
 .nav {
   display: flex;
   flex-direction: column;
+  margin: 20px 0;
 }
 
 .nav-item {
@@ -33,6 +34,11 @@ nz-header {
 
 nz-content {
   margin: 5px;
+}
+
+amplify-sign-out {
+  display: block;
+  margin: 20px 0;
 }
 
 .logo {
