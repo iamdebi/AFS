@@ -68,32 +68,27 @@ export class ClientsComponent implements OnInit {
     // let subscription;
 
     // (async () => {
-    //   subscription = client.subscribe({ query: gql(onCreateUser) }).subscribe({
-    //     next: data => {
-    //       console.log(data.data.onCreateUser);
-    //     },
-    //     error: error => {
-    //       console.warn(error);
-    //     }
-    //   });
+    //   subscription = client
+    //     .subscribe({ query: graphqlOperation(onCreateUser) })
+    //     .subscribe({
+    //       next: data => {
+    //         console.log(data.data.onCreateUser);
+    //       },
+    //       error: error => {
+    //         console.warn(error);
+    //       }
+    //     });
     // })();
 
     // const subscription = API.graphql(
     //   graphqlOperation(subscriptions.onCreateUser)
     // ).subscribe({
-    //   next: todoData => console.log(todoData)
+    //   next: userData => console.log(userData)
     // });
-
-    // API.graphql(
-    //   graphqlOperation(subscriptions.onCreateUser)
-    // ).OnCreateTodoListener.subscribe(evt => {
-    //   const data = (evt as any).value.data.onCreateTodo;
-    //   this.allUsers = [...this.allUsers, data];
-    // });
-    // subscription.unsubscribe();
   }
 
   // // old code before working on extra
+  //
   // todo = {};
   // allTodos = {};
   // createTodo(name, description) {
