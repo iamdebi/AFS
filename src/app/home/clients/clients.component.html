@@ -1,39 +1,38 @@
-<form class="form">
-  <input #first_name name="first_name" placeholder="First Name" required />
-  <input #last_name name="last_name" placeholder="Last Name" required />
-  <input #favourite_city name="favourite_city" placeholder="Favourite City" />
+<button nz-button [nzType]="'primary'" (click)="showModal()">
+  <span>Add User</span>
+</button>
 
-  <select #has_visited>
-    <option name="has_visited" value="true">Vistied</option>
-    <option name="has_visited" value="fasle">Not Yet</option>
-  </select>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="The first Modal"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="
+    createUser(
+      first_name.value,
+      last_name.value,
+      favourite_city.value,
+      has_visited.value,
+      gender.value
+    )
+  "
+>
+  <form>
+    <input #first_name name="first_name" placeholder="First Name" required />
+    <input #last_name name="last_name" placeholder="Last Name" required />
+    <input #favourite_city name="favourite_city" placeholder="Favourite City" />
 
-  <select #gender>
-    <option name="gender" value="Male">Male</option>
-    <option name="gender" value="Female">Female</option>
-    <option name="gender" value="Other">Other</option>
-  </select>
+    <select #has_visited>
+      <option name="has_visited" value="true">Vistied</option>
+      <option name="has_visited" value="fasle">Not Yet</option>
+    </select>
 
-  <button
-    (click)="
-      createUser(
-        first_name.value,
-        last_name.value,
-        favourite_city.value,
-        has_visited.value,
-        gender.value
-      )
-    "
-  >
-    Add User
-  </button>
-</form>
-<ul>
-  <li class="items" *ngFor="let item of allUsers.data.listUsers.items">
-    <p>{{ item.first_name }} -- {{ item.has_visited }} -- {{ item.gender }}</p>
-    <button (click)="deleteUser(item.id)">Delete</button>
-  </li>
-</ul>
+    <select #gender>
+      <option name="gender" value="Male">Male</option>
+      <option name="gender" value="Female">Female</option>
+      <option name="gender" value="Other">Other</option>
+    </select>
+  </form>
+</nz-modal>
 
 <nz-table #basicTable [nzData]="allUsers.data.listUsers.items">
   <thead>
@@ -53,8 +52,12 @@
       <td>{{ data.last_name }}</td>
       <td>{{ data.gender }}</td>
       <td>{{ data.favourite_city }}</td>
-      <td>{{ data.has_visited }}</td>
-      <td><button (click)="deleteUser(data.id)">Delete User</button></td>
+      <td>{{ data.has_visited ? "yes" : "no" }}</td>
+      <td>
+        <button nz-button [nzType]="'primary'" (click)="deleteUser(data.id)">
+          Delete User
+        </button>
+      </td>
     </tr>
   </tbody>
 </nz-table>

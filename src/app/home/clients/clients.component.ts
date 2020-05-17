@@ -15,17 +15,14 @@ import { createUser, updateUser, deleteUser } from "../../../graphql/mutations";
 export class ClientsComponent implements OnInit {
   user = {};
   allUsers = {};
+  isVisible = false;
 
   createUser(firstName, lastName, favouriteCity, hasVisited, gender) {
-    console.log(hasVisited);
-
     if (hasVisited === "true") {
       hasVisited = true;
     } else {
       hasVisited = false;
     }
-    console.log(hasVisited);
-
     this.user = {
       first_name: firstName,
       last_name: lastName,
@@ -35,7 +32,7 @@ export class ClientsComponent implements OnInit {
     };
     API.graphql(graphqlOperation(createUser, { input: this.user }));
     API.graphql(graphqlOperation(queries.listUsers));
-    console.log(this.allUsers);
+    this.handleOk();
   }
 
   deleteUser(id) {
@@ -45,18 +42,33 @@ export class ClientsComponent implements OnInit {
     API.graphql(
       graphqlOperation(mutations.deleteUser, { input: deleteUserDetails })
     );
-    API.graphql(graphqlOperation(queries.listUsers));
-    console.log(this.allUsers);
+    API.graphql(graphqlOperation(queries.getUser));
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log("Button ok clicked!");
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log("Button cancel clicked!");
+    this.isVisible = false;
   }
 
   async ngOnInit() {
     this.allUsers = await API.graphql(graphqlOperation(queries.listUsers));
-    console.log(this.allUsers);
 
-    this.apiService.OnCreateTodoListener.subscribe(evt => {
-      const data = (evt as any).value.data.onCreateTodo;
-      this.todos = [...this.todos, data];
+    const subscription = API.graphql(
+      graphqlOperation(subscriptions.onCreateUser)
+    ).subscribe({
+      next: todoData => console.log(todoData)
     });
+
+    subscription.unsubscribe();
   }
 
   // // old code before working on extra
@@ -72,7 +84,5 @@ export class ClientsComponent implements OnInit {
   // async ngOnInit() {
   //   this.allTodos = await API.graphql(graphqlOperation(queries.listTodos));
   //   console.log(this.allTodos);
-  //   /* create a todo */
-  //   await API.graphql(graphqlOperation(createTodo, { input: this.todo }));
   // }
 }
