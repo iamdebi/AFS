@@ -1,31 +1,49 @@
-<div>
-  <nz-layout>
-    <nz-header
-      ><a href="https://afslogistics.co.uk/">
-        <img
-          class="logo"
-          src="../../assets/logo_light.svg"
-          alt="AFS Logistic Logo"
-        />
-      </a>
-      AFS JWD Assessment
-    </nz-header>
+<amplify-authenticator>
+  <div>
     <nz-layout>
-      <nz-sider>
-        <nav class="nav">
-          <a routerLink="/home" routerLinkActive="active">Home</a>
-          <a routerLink="/home/users" routerLinkActive="active">Users</a>
-          <a routerLink="/home/clients" routerLinkActive="active">Clients</a>
-        </nav>
-      </nz-sider>
-      <nz-content
-        ><amplify-authenticator></amplify-authenticator>
-        <a routerLink="/home">
-          <amplify-sign-out></amplify-sign-out>
-        </a>
-        <router-outlet></router-outlet>
-      </nz-content>
+      <nz-layout>
+        <nz-sider>
+          <nz-header
+            ><a href="https://afslogistics.co.uk/">
+              <img
+                class="logo"
+                src="../../assets/logo_light.svg"
+                alt="AFS Logistic Logo"
+              />
+            </a>
+          </nz-header>
+          <nav class="nav">
+            <a
+              class="nav-item"
+              routerLink="/home"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Home</a
+            >
+            <a
+              class="nav-item"
+              routerLink="/home/users"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Users</a
+            >
+            <a
+              class="nav-item"
+              routerLink="/home/clients"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Clients</a
+            >
+            <a routerLink="/home">
+              <amplify-sign-out></amplify-sign-out>
+            </a>
+          </nav>
+        </nz-sider>
+        <nz-content>
+          <router-outlet></router-outlet>
+          <nz-footer>Debbie Urquhart</nz-footer>
+        </nz-content>
+      </nz-layout>
     </nz-layout>
-    <nz-footer>Debbie Urquhart</nz-footer>
-  </nz-layout>
-</div>
+  </div>
+</amplify-authenticator>

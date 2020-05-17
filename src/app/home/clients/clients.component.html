@@ -1,13 +1,40 @@
-<form>
+<form class="form">
   <input #name placeholder="name" />
   <input #description placeholder="description" />
-
   <button (click)="createTodo(name.value, description.value)">
     Add Todo
   </button>
+
+  <!-- <input #first_name name="first_name" placeholder="First Name" required />
+  <input #lastst_name name="last_name" placeholder="Last Name" required />
+  <input #favourite_city name="favourite_city" placeholder="Favourite City" />
+  <div>
+    <input #has_visited type="radio" name="gender" value="true" /> Vistied<br />
+    <input #has_visited type="radio" name="gender" value="false" />Not
+    Vistied<br />
+  </div>
+  <select>
+    <option #gender value="Male">Male</option>
+    <option #gender value="Male">Female</option>
+    <option #gender value="Male">Other</option>
+  </select>
+  <button
+    (click)="
+      createUser(
+        first_name.value,
+        last_name.value,
+        favourite_city.value,
+        has_visited.value,
+        gender.value
+      )
+    "
+  >
+    Add User
+  </button> -->
 </form>
+
 <ul>
-  <li class="items" *ngFor="let item of allTodos">
+  <li class="items" *ngFor="let item of allTodos.data.listTodos.items">
     <p>{{ item.name }} - {{ item.description }}</p>
   </li>
 </ul>

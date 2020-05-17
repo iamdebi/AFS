@@ -3,33 +3,30 @@ import * as queries from "../../../graphql/queries";
 import * as mutations from "../../../graphql/mutations";
 import * as subscriptions from "../../../graphql/subscriptions";
 import { API, graphqlOperation } from "aws-amplify";
-import { APIService } from "../../API.service";
+import { createTodo, updateTodo, deleteTodo } from "../../../graphql/mutations";
 
 @Component({
   selector: "app-clients",
   templateUrl: "./clients.component.html",
   styleUrls: ["./clients.component.scss"]
 })
-export class ClientsComponent implements OnInit {
-  allTodos: Array<any>;
-
-  constructor(private apiService: APIService) {}
+export class ClientsComponent {
+  todo = {};
+  allTodos = {};
 
   createTodo(name, description) {
-    this.apiService.CreateTodo({
+    this.todo = {
       name: name,
       description: description
-    });
+    };
+    API.graphql(graphqlOperation(createTodo, { input: this.todo }));
   }
 
   async ngOnInit() {
-    this.apiService.ListTodos().then(evt => {
-      this.allTodos = evt.items;
-    });
+    this.allTodos = await API.graphql(graphqlOperation(queries.listTodos));
+    console.log(this.allTodos);
 
-    this.apiService.OnCreateTodoListener.subscribe(evt => {
-      const data = (evt as any).value.data.onCreateTodo;
-      this.allTodos = [...this.allTodos, data];
-    });
+    /* create a todo */
+    await API.graphql(graphqlOperation(createTodo, { input: this.todo }));
   }
 }
