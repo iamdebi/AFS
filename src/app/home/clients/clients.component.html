@@ -1,23 +1,19 @@
 <form class="form">
-  <input #name placeholder="name" />
-  <input #description placeholder="description" />
-  <button (click)="createTodo(name.value, description.value)">
-    Add Todo
-  </button>
-
-  <!-- <input #first_name name="first_name" placeholder="First Name" required />
-  <input #lastst_name name="last_name" placeholder="Last Name" required />
+  <input #first_name name="first_name" placeholder="First Name" required />
+  <input #last_name name="last_name" placeholder="Last Name" required />
   <input #favourite_city name="favourite_city" placeholder="Favourite City" />
-  <div>
-    <input #has_visited type="radio" name="gender" value="true" /> Vistied<br />
-    <input #has_visited type="radio" name="gender" value="false" />Not
-    Vistied<br />
-  </div>
-  <select>
-    <option #gender value="Male">Male</option>
-    <option #gender value="Male">Female</option>
-    <option #gender value="Male">Other</option>
+
+  <select #has_visited>
+    <option name="has_visited" value="true">Vistied</option>
+    <option name="has_visited" value="fasle">Not Yet</option>
   </select>
+
+  <select #gender>
+    <option name="gender" value="Male">Male</option>
+    <option name="gender" value="Female">Female</option>
+    <option name="gender" value="Other">Other</option>
+  </select>
+
   <button
     (click)="
       createUser(
@@ -30,11 +26,48 @@
     "
   >
     Add User
-  </button> -->
+  </button>
 </form>
-
 <ul>
+  <li class="items" *ngFor="let item of allUsers.data.listUsers.items">
+    <p>{{ item.first_name }} -- {{ item.has_visited }} -- {{ item.gender }}</p>
+    <button (click)="deleteUser(item.id)">Delete</button>
+  </li>
+</ul>
+
+<nz-table #basicTable [nzData]="allUsers.data.listUsers.items">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Favourite City</th>
+      <th>Visited</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.first_name }}</td>
+      <td>{{ data.last_name }}</td>
+      <td>{{ data.gender }}</td>
+      <td>{{ data.favourite_city }}</td>
+      <td>{{ data.has_visited }}</td>
+      <td><button (click)="deleteUser(data.id)">Delete User</button></td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<!-- <form class="form">
+  <input #name placeholder="name" />
+  <input #description placeholder="description" />
+  <button (click)="createTodo(name.value, description.value)">
+    Add Todo
+  </button>
+</form> -->
+<!-- <ul>
   <li class="items" *ngFor="let item of allTodos.data.listTodos.items">
     <p>{{ item.name }} - {{ item.description }}</p>
   </li>
-</ul>
+</ul> -->
